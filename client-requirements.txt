@@ -1,0 +1,4 @@
+PiCamera
+RPi.GPIO
+smbus
+
