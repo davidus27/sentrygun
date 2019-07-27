@@ -57,6 +57,21 @@ class Projekt(object):
         self.snimka = cv2.imdecode(data, 1)
 
 
+   def spracovanie_obrazu(self):
+        """ Spracovava obraz a vracia kontury """
+        kernel = ones((3,3),uint8)
+        seda = cv2.cvtColor(self.snimka, cv2.COLOR_BGR2GRAY)
+        seda = cv2.medianBlur(seda,5)
+        seda = cv2.morphologyEx(seda,cv2.MORPH_CLOSE,kernel)
+        if self.prva_snimka is None:
+                self.prva_snimka = seda
+        self.rozdielova_snimka = cv2.absdiff(self.prva_snimka,seda)
+        ret,self.binarna_snimka = cv2.threshold(self.rozdielova_snimka,35,200,cv2.THRESH_BINARY)
+        self.binarna_snimka = cv2.morphologyEx(self.binarna_snimka,cv2.MORPH_CLOSE,kernel)
+        (__,self.kontury,__) = cv2.findContours(self.binarna_snimka,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
+
+
+
 
 
 
