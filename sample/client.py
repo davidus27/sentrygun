@@ -146,3 +146,23 @@ def nahravanie(kamera,stream):
                     spojenie.write(struct.pack('<L',long(1)))
             else:
                 pokracuj(spojenie,stream)
+
+
+
+def main():
+    """
+    Spustenie samotneho programu
+    """
+    akcelerometer()
+    kamera = kameraBootstrap()
+    spojenie = nastavSpojenie()
+    kameraBootstrap(kamera)
+    nahravanie(kamera,stream)
+    
+    spojenie.write(struct.pack('<L', 0))
+    spojenie.close()
+    klient.close()
+
+if __name__ == "__main__":
+   main() 
+
