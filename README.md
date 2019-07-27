@@ -15,7 +15,7 @@ This project
 
 
 ## Technologies
-
+This project uses [OpenCV](https://opencv.org/) library.
 
 ## Launch
 
