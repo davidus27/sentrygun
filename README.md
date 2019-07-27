@@ -19,9 +19,9 @@ This project
 
 ## Launch
 
-'''
+```
 git clone https://github.com/davidus27/sentrygun/tree/master 
-'''
+```
 
 
 ## License
