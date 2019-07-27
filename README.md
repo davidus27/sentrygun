@@ -19,7 +19,10 @@ Using Binary Threshold function the program builds individual contours of differ
 
 ## Technologies
 This project uses [OpenCV](https://opencv.org/) library for basic Computer Vision and Preprocessing of an image. ![OpenCv](images/opencv.png)
-
+The Raspberry Pi for relatively portable system using Python 2. 
+The CSI camera module for high quality image stream for best movement recognition.
+Basic acelerometer for solving unconvinient movements of the whole system.
+Servomotors controlled by Pulse Width Modulation signalling.
 
 ## Requirements
 For the recreation of this project you neeed to have:
@@ -35,11 +38,32 @@ For the recreation of this project you neeed to have:
       
 
 ## Launch
-
+First you need to clone this repo to both Server and Client.
+### Clone
 ```
-git clone https://github.com/davidus27/sentrygun/tree/master 
+$git clone https://github.com/davidus27/sentrygun/tree/master 
+$cd sentrygun
 ```
-
+### Install libraries
+You need to install required libraries for both Server and Client.
+#### Server:
+```
+$sudo pip3 install server-requirements.txt
+```
+#### CLient (Raspberry Pi):
+```
+$sudo pip install client-requirements.txt
+```
+#### Startup
+To start the program you need to first start python program on Server-side:
+```
+$python3 sample/server.py
+```
+Then on Client:
+```
+$python sample/client.py
+```
+More info about installing OpenCV library you need to go to the official [tutorial](https://docs.opencv.org/master/df/d65/tutorial_table_of_content_introduction.html).
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
