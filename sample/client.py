@@ -42,3 +42,18 @@ def motorPWM(frekvencia=50, gpioPin=0):
     pwm = gpio.PWM(gpioPin,frekvencia)
     pwm.start(0)
     return pwm
+
+
+def uholMotora(pwm,uhol,gpioPin =0):
+    """
+    posunie motor pripojeny na gpioPin na zaklade
+    vstupneho uhla.
+    Funkcia prepocita uhol na PWM signal a nastavi podla neho servomotor.
+    """
+    uloha = (uhol /18)+2
+    gpio.output(gpioPin, True)
+    pwm.ChangeDutyCycle(uloha)
+    sleep(1)
+    gpio.output(gpioPin,False)
+    pwm.ChangeDutyCycle(0)
+
