@@ -31,3 +31,14 @@ def akcelerometer():
     """
     bus = smbus.SMBus(1)
     bus.write_byte_data(0x1D,0x16,0x01)
+
+
+def motorPWM(frekvencia=50, gpioPin=0):
+    """
+    Inicializacia servomotora pre jednotlivy gpio pin
+    """
+    gpio.setwarnings(False)
+    gpio.setup(gpioPin,gpio.OUT)
+    pwm = gpio.PWM(gpioPin,frekvencia)
+    pwm.start(0)
+    return pwm
