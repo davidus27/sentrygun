@@ -133,6 +133,13 @@ class Projekt(object):
 
 def main():
     server_soket = pripojenie()
+    while True:
+            start_new_thread(Projekt().klient,(server_soket.accept()[0], ))
+
+    cv2.destroyAllWindows()
+    server_socket.close()
+
+
 
 if __name__ == "__main__":
     main()
