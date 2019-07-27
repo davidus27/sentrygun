@@ -57,3 +57,13 @@ def uholMotora(pwm,uhol,gpioPin =0):
     gpio.output(gpioPin,False)
     pwm.ChangeDutyCycle(0)
 
+
+
+def vytvorKlienta():
+    """
+    Spustenie nahravania.
+    Program bude cakat na lokalnej IP: 192.168.0.2:8000
+    """
+    klient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    klient.connect(('192.168.0.2', 8000))
+    return klient    
