@@ -25,3 +25,9 @@ import smbus
 pin1 = 11
 pin2 = 12
 
+def akcelerometer():
+    """
+    Inicializovanie hodnot pre akcelerometer
+    """
+    bus = smbus.SMBus(1)
+    bus.write_byte_data(0x1D,0x16,0x01)
