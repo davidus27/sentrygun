@@ -18,3 +18,10 @@ from picamera import PiCamera
 import RPi.GPIO as gpio
 import thread
 import smbus
+
+
+#GPIO PINOUT
+#definovane konstanty pre Raspberry Pi ktore PINy budeme pouzivat
+pin1 = 11
+pin2 = 12
+
