@@ -25,3 +25,15 @@ import cv2
 import io
 import struct
 import os
+
+
+def pripojenie():
+    """Pripája sa na sieťový socket"""
+    server_soket = socket()
+    try:
+        server_soket.bind(('0.0.0.0', 8000))
+    except OSError as e:
+        os.system("taskkill /F /IM Python.exe")
+    else:
+        server_soket.listen(0)
+        return server_soket
