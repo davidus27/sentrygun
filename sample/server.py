@@ -98,6 +98,38 @@ class Projekt(object):
         cv2.imshow("Rozdiel",self.binarna_snimka)
 
 
+    def klient(self,cl):
+        """ V prípade spojenia spustí celý program"""
+        s = cl.makefile("rb")
+        while True:
+                image_len = struct.unpack('<L', s.read(struct.calcsize('<L')))[0]
+                if not image_len or image_len == 0:
+                        break
+                if image_len == 1:
+                        self.prva_snimka = None
+                        continue
+                self.prenos(s,image_len)
+                self.dekodovanie() 
+                self.spracovanie_obrazu()
+
+                for i in self.kontury:
+                        i = max(self.kontury, key =cv2.contourArea)	            
+                        if cv2.contourArea(i) < 100:
+                                continue
+                        self.stredovy_bod(i)
+                        self.posli(cl)
+                        self.vyobrazenie(i)
+
+                tlacidlo = cv2.waitKey(1) & 0xFF
+                if tlacidlo == 27:
+                        break
+
+                if tlacidlo == ord("r") or tlacidlo == ord("R"):
+                        self.prva_snimka = None
+
+                self.ikony()
+        s.close()
+
 
 def main():
     server_soket = pripojenie()
