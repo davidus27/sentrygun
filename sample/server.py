@@ -78,7 +78,11 @@ class Projekt(object):
         self.hodnotay = 62.57 + (self.betay*self.stred[1])
 
 
-
+    def posli(self,cl):
+        """ Posiela hodnoty x a y spolu so synchronizačnou Boolean hodnotou"""
+        cl.sendall(struct.pack("?",True))
+        cl.sendall(struct.pack("i",int(self.hodnotax)))
+        cl.sendall(struct.pack("i",int(self.hodnotay)))	
 
 
 
