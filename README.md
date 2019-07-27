@@ -11,11 +11,12 @@ CSI connector on Raspberry Pi. Based on the image Raspberry Pi tries to aim lase
 
 
 ## Introduction
-This project 
+
 
 
 ## Technologies
-This project uses [OpenCV](https://opencv.org/) library.
+This project uses [OpenCV](https://opencv.org/) library for basic Computer Vision and Preprocessing of an image. ![OpenCv](images/opencv.png)
+
 
 ## Launch
 
@@ -24,5 +25,5 @@ git clone https://github.com/davidus27/sentrygun/tree/master
 ```
 
 
-## License
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
