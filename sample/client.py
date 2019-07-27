@@ -66,4 +66,14 @@ def vytvorKlienta():
     """
     klient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     klient.connect(('192.168.0.2', 8000))
-    return klient    
+    return klient   
+
+def nastavSpojenie(klient):
+    """
+    Vytvori spojenie medzi klietom a serverom.
+    """
+    spojenie = klient.makefile('wb')
+    thread.start_new_thread(receive,(klient, ))
+    return spojenie
+
+        
