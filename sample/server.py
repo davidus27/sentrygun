@@ -49,6 +49,12 @@ class Projekt(object):
         self.stream = BytesIO()
         self.stream.write(spojenie.read(velkost_snimky))
         self.stream.seek(0)
+    
+
+    def dekodovanie(self):
+        """ Dekoduje stream obrazov na ndarray format z kniznice numpy"""
+        data = fromstring(self.stream.getvalue(), dtype=uint8)
+        self.snimka = cv2.imdecode(data, 1)
 
 
 
