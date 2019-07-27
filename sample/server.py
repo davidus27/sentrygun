@@ -17,3 +17,11 @@ Description: Hlavny Python 3.x program pre Server.
     "r" na resetovanie statickej referencnej snimky.
 
 """
+from time import sleep
+from numpy import int0,uint8,ones,fromstring
+from socket import socket
+from _thread import start_new_thread
+import cv2
+import io
+import struct
+import os
