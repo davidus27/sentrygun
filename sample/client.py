@@ -104,3 +104,45 @@ def kameraBootstrap():
     sleep(2)
     return kamera
 
+
+def pokracuj(spojenie,stream):
+    """
+    Vymaze staru fotku a pokracuje v streame dat
+    """
+    spojenie.write(struct.pack('<L', stream.tell()))
+    spojenie.flush()
+    stream.seek(0)
+    spojenie.write(stream.read())
+    stream.seek(0)
+    stream.truncate()
+
+
+
+def nahravanie(kamera,stream):
+   """
+   Vytvori pociatocny stream obrazu prenasany cez Ethernet.
+   V streame kontroluje flow dat a posiela info o zmene obrazu pri zmene akceleratora.
+   """
+    stream = io.BytesIO()
+    dhx,dhy,dhz = None,None,None
+    for frame in kamera.capture_continuous(stream, 'jpeg'):
+            data = bus.read_i2c_block_data(0x1D,0x00,6)
+            osx = (data[1] & 0x03) * 256 + data [0]
+            if osx > 511 :
+                    osx -= 1024
+            osy = (data[3] & 0x03) * 256 + data [2]
+            if osy > 511 :
+                    osy -= 1024
+            osz = (data[5] & 0x03) * 256 + data [4]
+            if osz > 511 :
+                    osz -= 1024
+            if dhx == None:
+                    dhx = osx
+            if dhy == None:
+                    dhy = osy
+            if dhz == None:
+                    dhz = osz
+            if dhx > osx+10 or dhx < osx-10 or dhy > osy+10 or dhy < osy-10 or dhz > osz+10 or dhz < osz-10:
+                    spojenie.write(struct.pack('<L',long(1)))
+            else:
+                pokracuj(spojenie,stream)
