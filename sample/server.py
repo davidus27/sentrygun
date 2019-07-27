@@ -70,6 +70,13 @@ class Projekt(object):
         self.binarna_snimka = cv2.morphologyEx(self.binarna_snimka,cv2.MORPH_CLOSE,kernel)
         (__,self.kontury,__) = cv2.findContours(self.binarna_snimka,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
 
+    def stredovy_bod(self, i):
+        """ Zistuje stred objektu"""
+        M = cv2.moments(i)
+        self.stred = (int(M["m10"]/M["m00"]), int(M["m01"]/M["m00"]))
+        self.hodnotax = 55.32 + (self.betax*self.stred[0]) 
+        self.hodnotay = 62.57 + (self.betay*self.stred[1])
+
 
 
 
