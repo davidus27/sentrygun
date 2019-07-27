@@ -6,8 +6,8 @@ Sentry gun is my first big python project. It detects moving objects on camera a
 * [Technologies](#Technologies)
 * [Requirements](#Requirements)
 * [Launch](#Launch)
-* [License](#License)
-
+* [Model](#Model)
+* [License](#License)]
 
 ## Introduction
 It's a stationary Raspberry Pi acting as a Client and connected to the Server via static local IP address via Ethernet cable.
