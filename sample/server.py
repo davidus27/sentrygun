@@ -42,3 +42,20 @@ def pripojenie():
 class Projekt(object):
     def __init__(self):
         pass
+
+    
+    def prenos(self,spojenie,velkost_snimky =0):
+        """ Ziskava z vlakna snimku """
+        self.stream = BytesIO()
+        self.stream.write(spojenie.read(velkost_snimky))
+        self.stream.seek(0)
+
+
+
+
+
+def main():
+    server_soket = pripojenie()
+
+if __name__ == "__main__":
+    main()
