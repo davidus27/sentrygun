@@ -19,6 +19,7 @@ Using Binary Threshold function the program builds individual contours of differ
 
 ## Technologies
 This project uses [OpenCV](https://opencv.org/) library for basic Computer Vision and Preprocessing of an image. ![OpenCv](images/opencv.png)
+
 The Raspberry Pi for relatively portable system using Python 2. 
 The CSI camera module for high quality image stream for best movement recognition.
 Basic acelerometer for solving unconvinient movements of the whole system.
@@ -50,7 +51,7 @@ You need to install required libraries for both Server and Client.
 ```
 $sudo pip3 install server-requirements.txt
 ```
-#### CLient (Raspberry Pi):
+#### Client (Raspberry Pi):
 ```
 $sudo pip install client-requirements.txt
 ```
