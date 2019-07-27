@@ -37,3 +37,8 @@ def pripojenie():
     else:
         server_soket.listen(0)
         return server_soket
+
+
+class Projekt(object):
+    def __init__(self):
+        pass
