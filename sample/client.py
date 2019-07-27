@@ -58,6 +58,23 @@ def uholMotora(pwm,uhol,gpioPin =0):
     pwm.ChangeDutyCycle(0)
 
 
+def receive(socket):
+    """
+    Sleduje tok informacii zo "serveru".
+    Ovlada uhol motora na základe informácii ziskanych z toku.
+    informacie su synchronizovane na X-ove a Y-ove suradnice.
+    """
+    pwm1 = motorPWM(50,pin1)
+    pwm2 = motorPWM(50,pin2)
+    while True:
+        ok = struct.unpack("?",socket.recv(struct.calcsize('?')))
+        x = struct.unpack("i",socket.recv(struct.calcsize('i')))
+        y = struct.unpack("i",socket.recv(struct.calcsize('i')))
+        if not ok:
+                break
+        uholMotora(pwm1,uhol = int(x[0]), gpioPin=a)
+        uholMotora(pwm2,uhol = int(y[0]), gpioPin=b)
+         
 
 def vytvorKlienta():
     """
