@@ -76,4 +76,14 @@ def nastavSpojenie(klient):
     thread.start_new_thread(receive,(klient, ))
     return spojenie
 
-        
+
+def kameraBootstrap():
+    """
+    Pociatocne nastavenia kamery
+    """
+    kamera = PiCamera()
+    kamera.resolution = (320, 240)
+    kamera.start_preview()
+    sleep(2)
+    return kamera
+
