@@ -9,3 +9,12 @@ Description: Hlavny Python 2.x program pre Raspberry Pi v podobe Klienta pre hla
     Na zaklade informacii spracovanych zo samotneho Servera sa vratia x-ove a y-ove suradnice pre servomotory. Po nastaveni servomotorov sa mozu pohybovat do danych suradnic. 
     Aktivne sledovanie suradnic z akcelerometra posielaju informaciu o resetovani statickeho obrazu pre Server na lepsie spracovanie kontur prostredia.
 """
+
+import io
+import socket
+import struct
+from time import sleep
+from picamera import PiCamera
+import RPi.GPIO as gpio
+import thread
+import smbus
