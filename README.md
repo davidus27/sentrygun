@@ -39,8 +39,10 @@ For the recreation of this project you neeed to have:
       
 
 ## Launch
-First you need to clone this repo to both Server and Client.
+To create this program you need to clone this repo for both Client and Server. Install the required 
+libraries (and Python if you don't have it installed yet) and set static IP address on Server side.
 ### Clone
+First you need to clone this repo to both Server and Client.
 ```
 $git clone https://github.com/davidus27/sentrygun/tree/master 
 $cd sentrygun
@@ -55,6 +57,11 @@ $sudo pip3 install server-requirements.txt
 ```
 $sudo pip install client-requirements.txt
 ```
+#### Static IP address
+You need to connect Server with Client throught Ethernet cable and set static IP address. 
+If you have Windows you can follow [this](https://portforward.com/networking/static-ip-windows-10.htm) awesome tutorial.
+If you are on Linux systems you probably know what you are doing anyway.
+
 #### Startup
 To start the program you need to first start python program on Server-side:
 ```
