@@ -1,0 +1,11 @@
+"""
+File: client.py
+Author: dave
+Email: davidisbest27@gmail.com
+Github: https://github.com/davidus27
+Description: Hlavny Python 2.x program pre Raspberry Pi v podobe Klienta pre hlavnu komunikaciu s pocitacom v ulohe Servera. Program inicializuje cez Ethernet lokalne spojenie cez staticku IP adresu: 
+            -Klient:192.168.0.2:8000
+            -Server:192.168.0.1:8000
+    Na zaklade informacii spracovanych zo samotneho Servera sa vratia x-ove a y-ove suradnice pre servomotory. Po nastaveni servomotorov sa mozu pohybovat do danych suradnic. 
+    Aktivne sledovanie suradnic z akcelerometra posielaju informaciu o resetovani statickeho obrazu pre Server na lepsie spracovanie kontur prostredia.
+"""
