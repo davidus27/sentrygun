@@ -82,7 +82,15 @@ class Projekt(object):
         """ Posiela hodnoty x a y spolu so synchronizačnou Boolean hodnotou"""
         cl.sendall(struct.pack("?",True))
         cl.sendall(struct.pack("i",int(self.hodnotax)))
-        cl.sendall(struct.pack("i",int(self.hodnotay)))	
+        cl.sendall(struct.pack("i",int(self.hodnotay)))
+
+
+    def vyobrazenie(self,i):
+        """ Vytvára ohraničenie objektu a označenie stredového bodu"""	
+        cv2.circle(self.snimka, self.stred, 5,(255,255,255), -2)
+        cv2.putText(self.snimka, "uhol x:{0}".format(int(self.hodnotax)),(0,30),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),0)
+        cv2.putText(self.snimka, "uhol y: {0}".format(int(self.hodnotay)),(0,45),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,255,255),0)
+
 
 
 
