@@ -6,8 +6,8 @@ Sentry gun is my first big python project. It detects moving objects on camera a
 * [Technologies](#Technologies)
 * [Requirements](#Requirements)
 * [Launch](#Launch)
-* [License](#License)
-
+* [Model](#Model)
+* [License](#License)]
 
 ## Introduction
 It's a stationary Raspberry Pi acting as a Client and connected to the Server via static local IP address via Ethernet cable.
@@ -72,6 +72,12 @@ Then on Client:
 $python sample/client.py
 ```
 More info about installing OpenCV library you need to go to the official [tutorial](https://docs.opencv.org/master/df/d65/tutorial_table_of_content_introduction.html).
+
+##Model
+You can use basic model structure for mounting of all necessary parts in folder "models" in AutoCAD.
+Size of 3D printed box is 10x10x10 cm. 
+![](images/model.jpg)
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
