@@ -60,7 +60,7 @@ $sudo pip install client-requirements.txt
 ```
 #### Static IP address
 You need to connect Server with Client throught Ethernet cable and set static IP address. 
-If you have Windows you can follow [this](https://portforward.com/networking/static-ip-windows-10.htm) awesome tutorial.
+If you have Windows you can follow [this](https://portforward.com/networking/static-ip-windows-10.htm) tutorial.
 If you are on Linux systems you probably know what you are doing anyway.
 
 #### Startup
@@ -74,7 +74,7 @@ $python sample/client.py
 ```
 More info about installing OpenCV library you need to go to the official [tutorial](https://docs.opencv.org/master/df/d65/tutorial_table_of_content_introduction.html).
 
-##Model
+## Model
 You can use basic model structure for mounting of all necessary parts in folder "models" in AutoCAD.
 Size of 3D printed box is 10x10x10 cm. 
 ![](images/model.jpg)
